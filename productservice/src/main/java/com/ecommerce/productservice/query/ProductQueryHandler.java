@@ -1,6 +1,5 @@
 package com.ecommerce.productservice.query;
 
-import com.ecommerce.productservice.command.ProductCreatedEvent;
 import com.ecommerce.productservice.model.ProductRestModel;
 import com.ecommerce.productservice.queries.FindProductsQuery;
 import com.ecommerce.productservice.query.mapper.ProductRestMapper;
@@ -20,8 +19,8 @@ public class ProductQueryHandler {
 
     @QueryHandler
     public List<ProductRestModel> findProducts(FindProductsQuery findProductsQuery) {
-
-        return productRestMapper.productToProductRestModel(productRepository.findAll());
-
+        List<ProductRestModel> productRestModels = null;
+        productRestModels = productRestMapper.productToProductRestModel(productRepository.findAll());
+        return productRestModels;
     }
 }

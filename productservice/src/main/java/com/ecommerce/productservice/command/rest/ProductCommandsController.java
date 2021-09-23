@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -19,7 +20,7 @@ public class ProductCommandsController {
     private CommandGateway commandGateway;
 
     @PostMapping()
-    public String prodPost(@RequestBody CreateProductDto createProductDto) {
+    public String prodPost(@Valid @RequestBody CreateProductDto createProductDto) {
         CreateProductCommand createProductCommand = CreateProductCommand.builder()
                 .productId(UUID.randomUUID().toString())
                 .productName(createProductDto.getProductName())
