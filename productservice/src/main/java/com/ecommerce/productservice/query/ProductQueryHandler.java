@@ -1,12 +1,12 @@
 package com.ecommerce.productservice.query;
 
 import com.ecommerce.productservice.command.ProductCreatedEvent;
-import com.ecommerce.productservice.entity.Product;
 import com.ecommerce.productservice.model.ProductRestModel;
+import com.ecommerce.productservice.queries.FindProductsQuery;
+import com.ecommerce.productservice.query.mapper.ProductRestMapper;
 import com.ecommerce.productservice.repository.ProductRepository;
 import lombok.AllArgsConstructor;
-import org.axonframework.eventhandling.EventHandler;
-import org.springframework.beans.BeanUtils;
+import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,12 +16,12 @@ import java.util.List;
 public class ProductQueryHandler {
 
     private ProductRepository productRepository;
-    //private ProductRestMapper productRestMapper;
+    private ProductRestMapper productRestMapper;
 
-    @EventHandler
-    public List<ProductRestModel> findProducts(ProductCreatedEvent productCreatedEvent) {
+    @QueryHandler
+    public List<ProductRestModel> findProducts(FindProductsQuery findProductsQuery) {
 
-        //return productRestMapper.map(productRepository.findAll());
-        return null;
+        return productRestMapper.productToProductRestModel(productRepository.findAll());
+
     }
 }
