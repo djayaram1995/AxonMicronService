@@ -1,0 +1,11 @@
+AxonServer-4.5.7/*.jar
+AxonServer-4.5.7/*.pid
+AxonServer-4.5.7/*.txt
+AxonServer-4.5.7/data
+AxonServer-4.5.7/kubernetes
+AxonServer-4.5.7/plugins
+data
+.idea
+.metadata
+plugins
+*.pid
