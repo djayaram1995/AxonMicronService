@@ -26,7 +26,7 @@ public class ProductAggregate {
             throw new IllegalArgumentException("Price no zero");
         }
         if (createProductCommand.getProductName().isEmpty()) {
-            throw new IllegalArgumentException("Product name no empty");
+            throw new IllegalArgumentException("Product name not be empty");
         }
         ProductCreatedEvent productCreatedEvent = new ProductCreatedEvent();
         BeanUtils.copyProperties(createProductCommand, productCreatedEvent);
